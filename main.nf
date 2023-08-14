@@ -11,7 +11,11 @@ if (params.gam == null || !params.gam.endsWith('.gam') || !file(params.gam).exis
 }
 
 // Check if the gfa file is provided and has the right extension
-if (params.gfa == null || !params.gfa.endsWith('.gfa') || !file(params.gfa).exists()) {
+if (params.gfa == null || !file(params.gfa).exists()) {
+    exit 1, "Please provide a valid .gfa file with --gfa parameter. Given file: ${params.gfa}"
+}
+
+if (!params.gfa.endsWith('.gfa') || !params.gfa.endsWith('.gfa.gz')) {
     exit 1, "Please provide a valid .gfa file with --gfa parameter. Given file: ${params.gfa}"
 }
 
