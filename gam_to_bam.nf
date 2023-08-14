@@ -3,8 +3,11 @@ process GAM_TO_BAM {
 
     container = "vg"
 
+    publishDir "${params.resultsDir}/bam", mode: 'copy'
+
     input:
-    tuple val(sample_id), path(gam_file), path(reference_graph)
+    tuple val(sample_id), path(gam_file)
+    tuple val(sample_id), path(reference_graph)
 
     output:
     tuple val(sample_id), path("*.bam")
