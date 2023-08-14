@@ -1,7 +1,7 @@
 process GAM_TO_BAM {
     tag "${sample_id}"
 
-    container = "vg"
+    container = "quay.io/aabbey_lodestar/vg"
 
     publishDir "${params.resultsDir}/bam", mode: 'copy'
 
