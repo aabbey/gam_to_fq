@@ -14,7 +14,13 @@ process GAM_TO_BAM {
 
     script:
     """
-    vg convert -g ${reference_graph} > reference.vg
+    if [[ "${reference_graph}" == *.gz ]]; then
+        gunzip -c ${reference_graph} > reference.gfa
+    else
+        cp ${reference_graph} reference.gfa
+    fi
+
+    vg convert -g reference.gfa > reference.vg
     vg surject -b -x reference.vg -i ${gam_file} > ${sample_id}.bam
     """
 }
