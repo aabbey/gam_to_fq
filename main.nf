@@ -15,7 +15,7 @@ if (params.gfa == null || !file(params.gfa).exists()) {
     exit 1, "Please provide a valid .gfa file with --gfa parameter. Given file: ${params.gfa}"
 }
 
-if (!params.gfa.endsWith('.gfa') || !params.gfa.endsWith('.gfa.gz')) {
+if (!params.gfa.endsWith('.gfa') && !params.gfa.endsWith('.gfa.gz')) {
     exit 1, "Please provide a valid .gfa file with --gfa parameter. Given file: ${params.gfa}"
 }
 
