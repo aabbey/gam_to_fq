@@ -20,7 +20,7 @@ process GAM_TO_BAM {
         cp ${reference_graph} reference.gfa
     fi
 
-    vg convert -g reference.gfa > reference.vg
-    vg surject -b -x reference.vg -i ${gam_file} > ${sample_id}.bam
+    vg convert -x -g reference.gfa > reference.xg
+    vg surject -b -x reference.xg -i ${gam_file} > ${sample_id}.bam
     """
 }
